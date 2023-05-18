@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Quiz App</string>
+    <string name="count_label">Q%d</string>
 </resources>
