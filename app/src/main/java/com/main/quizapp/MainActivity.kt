@@ -1,5 +1,6 @@
 package com.main.quizapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -52,8 +53,9 @@ val quiz = quizData[0]//pick one quiz set
         binding.answer3.text=quiz[2]
         binding.answer4.text=quiz[3]
         quiz.removeAt(0)//remove country from quiz
+
     }
-    fun checkAnswer(view:View){
+    fun checkAnswer(view: View){
         val answerButton:Button=findViewById(view.id)
         val btnText=answerButton.text.toString()
         val alertitle:String
@@ -73,8 +75,11 @@ val quiz = quizData[0]//pick one quiz set
             .show()
 
     }
-    fun checkQuizCount(){
+    private fun checkQuizCount(){
         if (quizCount==QUIZ_COUNT){
+val intent=Intent(this,ResultActivity::class.java)
+            intent.putExtra("right answer count",rightAnswerCount)
+    startActivity(intent)
 
         }
         else{
