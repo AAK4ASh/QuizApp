@@ -1,10 +1,8 @@
 package com.main.quizapp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.main.quizapp.databinding.ActivityMainBinding
 import com.main.quizapp.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {

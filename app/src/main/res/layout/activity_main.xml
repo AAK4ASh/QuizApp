@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +12,7 @@
         android:id="@+id/count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Q1"
+        android:text="@string/q1"
         android:textSize="22sp"
 
 
@@ -22,7 +21,7 @@
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="question "
+        android:text="@string/question"
         android:textSize="22sp"
         android:layout_marginTop="50dp"
         />
@@ -31,35 +30,35 @@
         android:id="@+id/answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="answer1"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:text="@string/answer1"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginTop="40dp"/>
 
     <Button
         android:id="@+id/answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="answer2"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:text="@string/answer2"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
         />
 
     <Button
         android:id="@+id/answer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="answer3"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"/>
+        android:text="@string/answer3"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"/>
 
     <Button
         android:id="@+id/answer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="answer4"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"/>
+        android:text="@string/answer4"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"/>
 
 
 

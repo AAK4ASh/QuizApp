@@ -11,11 +11,11 @@ import com.main.quizapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private  var  rightAnswer:String?=null
-    private var rightAnswerCount=0
-    private  var quizCount= 1
-    private val QUIZ_COUNT=5
-    private  val quizData = mutableListOf(
+    private var rightAnswer: String? = null
+    private var rightAnswerCount = 0
+    private var quizCount = 1
+    private val totalCount = 5
+    private val quizData = mutableListOf(
 
         mutableListOf("China", "Beijing", "Jakarta", "Manila", "Stockholm"),
         mutableListOf("India", "New Delhi", "Beijing", "Bangkok", "Seoul"),
@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity() {
         mutableListOf("Canada", "Ottawa", "Bern", "Copenhagen", "Jakarta"),
         mutableListOf("Cuba", "Havana", "Bern", "London", "Mexico City"),
         mutableListOf("Mexico", "Mexico City", "Ottawa", "Berlin", "Santiago"),
-        mutableListOf("United States", "Washington D.C.", "San Jose", "Buenos Aires", "Kuala Lumpur"),
         mutableListOf("France", "Paris", "Ottawa", "Copenhagen", "Tokyo"),
         mutableListOf("Germany", "Berlin", "Copenhagen", "Bangkok", "Santiago"),
         mutableListOf("Italy", "Rome", "London", "Paris", "Athens"),
         mutableListOf("Spain", "Madrid", "Mexico City", "Jakarta", "Havana"),
         mutableListOf("United Kingdom", "London", "Rome", "Paris", "Singapore")
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,52 +40,77 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         quizData.shuffle()
         showNextQuiz()
+      onClick()
+
     }
-    private fun showNextQuiz(){
-        binding.count.text=getString(R.string.count_label,quizCount)
-val quiz = quizData[0]//pick one quiz set
-        rightAnswer=quiz[1]
+
+    private fun showNextQuiz() {
+        binding.count.text = getString(R.string.count_label, quizCount)
+        val quiz = quizData[0]//pick one quiz set
+        rightAnswer = quiz[1]
+        val q= quiz[0]
 
         quiz.shuffle()//shuffle choice and answers
-        binding.question.text= quiz[0]
-        binding.answer1.text=quiz[0]
-        binding.answer2.text=quiz[1]
-        binding.answer3.text=quiz[2]
-        binding.answer4.text=quiz[3]
+        binding.question.text = "what is the capital of $q ?"
+        binding.answer1.text = quiz[1]
+        binding.answer2.text = quiz[2]
+        binding.answer3.text = quiz[3]
+        binding.answer4.text = quiz[4]
         quiz.removeAt(0)//remove country from quiz
 
     }
-    fun checkAnswer(view: View){
-        val answerButton:Button=findViewById(view.id)
-        val btnText=answerButton.text.toString()
-        val alertitle:String
-        if (btnText==rightAnswer){
-            alertitle="correct"
+ private fun checkAnswer() {
+
+        val btnText = binding.answer1.text.toString()
+        if (btnText == rightAnswer) {
+            AlertDialog.Builder(this)
+                .setTitle("correct")
+                .setPositiveButton("ok") { _, _ ->
+                    showNextQuiz()
+                    checkQuizCount()
+                }
+                .setCancelable(false)
+                .show()
             rightAnswerCount++
-        }else{
-            alertitle="wrong"
+        } else {
+            AlertDialog.Builder(this)
+                .setTitle("Wrong")
+                .setMessage("Answer is $rightAnswer")
+                .setPositiveButton("ok") { _, _ ->
+                    showNextQuiz()
+                    checkQuizCount()
+                }
+                .setCancelable(false)
+                .show()
         }
-        AlertDialog.Builder(this)
-            .setTitle(alertitle)
-            .setMessage("Answer is $rightAnswer")
-            .setPositiveButton("ok"){_,_->
-                checkQuizCount()
-            }
-            .setCancelable(false)
-            .show()
+
 
     }
-    private fun checkQuizCount(){
-        if (quizCount==QUIZ_COUNT){
-val intent=Intent(this,ResultActivity::class.java)
-            intent.putExtra("right answer count",rightAnswerCount)
-    startActivity(intent)
 
-        }
-        else{
+    private fun checkQuizCount() {
+        if (quizCount == totalCount) {
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("right answer count", rightAnswerCount)
+            startActivity(intent)
+
+        } else {
             quizCount++
             showNextQuiz()
         }
 
+    }
+    private fun onClick(){
+        binding.answer1.setOnClickListener{
+            checkAnswer()
+        }
+        binding.answer2.setOnClickListener{
+            checkAnswer()
+        }
+        binding.answer3.setOnClickListener{
+            checkAnswer()
+        }
+        binding.answer4.setOnClickListener{
+            checkAnswer()
+        }
     }
 }
