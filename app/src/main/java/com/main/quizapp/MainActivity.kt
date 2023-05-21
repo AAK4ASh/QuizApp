@@ -1,11 +1,9 @@
 package com.main.quizapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.main.quizapp.databinding.ActivityMainBinding
 
 
@@ -64,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         val btnText = binding.answer1.text.toString()
         if (btnText == rightAnswer) {
             AlertDialog.Builder(this)
-                .setTitle("correct")
+                .setTitle("Correct")
                 .setPositiveButton("ok") { _, _ ->
                     showNextQuiz()
                     checkQuizCount()
@@ -75,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             AlertDialog.Builder(this)
                 .setTitle("Wrong")
-                .setMessage("Answer is $rightAnswer")
+                .setMessage(" The answer is $rightAnswer")
                 .setPositiveButton("ok") { _, _ ->
                     showNextQuiz()
                     checkQuizCount()
