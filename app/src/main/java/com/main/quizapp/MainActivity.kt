@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         quizData.shuffle()
-        showNextQuiz()
+showNextQuiz()
       onClick()
 
     }
@@ -47,24 +47,23 @@ class MainActivity : AppCompatActivity() {
         val quiz = quizData[0]//pick one quiz set
         rightAnswer = quiz[1]
         val q= quiz[0]
-
         quiz.shuffle()//shuffle choice and answers
         binding.question.text = "what is the capital of $q ?"
-        binding.answer1.text = quiz[1]
-        binding.answer2.text = quiz[2]
-        binding.answer3.text = quiz[3]
-        binding.answer4.text = quiz[4]
-        quiz.removeAt(0)//remove country from quiz
+        binding.answer1.text = quiz[0]
+        binding.answer2.text = quiz[1]
+        binding.answer3.text = quiz[2]
+        binding.answer4.text = quiz[3]
+    quizData.removeAt(0)//remove country from quiz
 
     }
  private fun checkAnswer() {
 
-        val btnText = binding.answer1.text.toString()
+        val btnText:String = binding.answer1.text.toString()
         if (btnText == rightAnswer) {
             AlertDialog.Builder(this)
                 .setTitle("Correct")
                 .setPositiveButton("ok") { _, _ ->
-                    showNextQuiz()
+
                     checkQuizCount()
                 }
                 .setCancelable(false)
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Wrong")
                 .setMessage(" The answer is $rightAnswer")
                 .setPositiveButton("ok") { _, _ ->
-                    showNextQuiz()
+
                     checkQuizCount()
                 }
                 .setCancelable(false)
@@ -92,8 +91,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         } else {
-            quizCount++
             showNextQuiz()
+            quizCount++
+
+
         }
 
     }
