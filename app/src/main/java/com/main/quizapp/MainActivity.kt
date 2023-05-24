@@ -38,8 +38,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         quizData.shuffle()
-showNextQuiz()
-    //onClick()
+onClick()
+        showNextQuiz()
+
 
     }
 
@@ -52,44 +53,45 @@ showNextQuiz()
          rightAnswer = quiz[1]
         quiz.removeAt(0)
          quiz.shuffle()//shuffle choice and answers
-
-
-
         binding.answer1.text = quiz[0]
         binding.answer2.text = quiz[1]
         binding.answer3.text = quiz[2]
         binding.answer4.text = quiz[3]
     quizData.removeAt(0)//remove country from quiz
-        val view=binding.root
-checkAnswer(view)
-    }
- private fun checkAnswer(view: View) {
-     val answerButton:Button=findViewById(view.id)
-     val btnText:String= answerButton.text.toString()
-        if (btnText == rightAnswer) {
-            AlertDialog.Builder(this)
-                .setTitle("Correct")
-                .setPositiveButton("ok") { _, _ ->
+     onClick()
 
-                    checkQuizCount()
-                }
-                .setCancelable(false)
-                .show()
-            rightAnswerCount++
-        } else {
+    }
+ private fun rightAnswer() {
+
+     AlertDialog.Builder(this)
+         .setTitle("Correct")
+         .setPositiveButton("ok") { _, _ ->
+showNextQuiz()
+             checkQuizCount()
+         }
+         .setCancelable(false)
+         .show()
+     rightAnswerCount++
+ }
+    private fun wrongAnswer(){
+
+
+
             AlertDialog.Builder(this)
                 .setTitle("Wrong")
                 .setMessage(" The answer is $rightAnswer")
                 .setPositiveButton("ok") { _, _ ->
+                    showNextQuiz()
 
                     checkQuizCount()
                 }
                 .setCancelable(false)
                 .show()
-        }
-
-
     }
+
+
+
+
 
     private fun checkQuizCount() {
         if (quizCount == totalCount) {
@@ -105,18 +107,31 @@ checkAnswer(view)
         }
 
     }
-   /* private fun onClick():{
+    private fun onClick(){
         binding.answer1.setOnClickListener{
-            checkAnswer()
+          val ans1=  binding.answer1.text.toString()
+            if (ans1==rightAnswer){
+                rightAnswer()
+            }else{ wrongAnswer()}
+
         }
         binding.answer2.setOnClickListener{
-            checkAnswer()
+            val ans2=  binding.answer2.text.toString()
+            if (ans2==rightAnswer){
+                rightAnswer()
+            }else{ wrongAnswer()}
         }
         binding.answer3.setOnClickListener{
-            checkAnswer()
+            val ans3=  binding.answer3.text.toString()
+            if (ans3==rightAnswer){
+                rightAnswer()
+            }else{ wrongAnswer()}
         }
         binding.answer4.setOnClickListener{
-            checkAnswer()
+            val ans4=  binding.answer4.text.toString()
+            if (ans4==rightAnswer){
+                rightAnswer()
+            }else{ wrongAnswer()}
         }
-    }*/
+    }
 }
