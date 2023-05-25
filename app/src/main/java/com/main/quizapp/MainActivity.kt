@@ -109,8 +109,8 @@ showNextQuiz()
     }
     private fun onClick(){
         binding.answer1.setOnClickListener{
-          val ans1=  binding.answer1.text.toString()
-            if (ans1==rightAnswer){
+          val ans1 = binding.answer1.text.toString()
+          if (ans1==rightAnswer){
                 rightAnswer()
             }else{ wrongAnswer()}
 
