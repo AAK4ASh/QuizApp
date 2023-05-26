@@ -2,8 +2,6 @@ package com.main.quizapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.main.quizapp.databinding.ActivityMainBinding
@@ -45,13 +43,13 @@ onClick()
     }
 
     private fun showNextQuiz() {
-         binding.count.text = getString(R.string.count_label, quizCount)
+         binding.count.text = getString(R.string.count_label, quizCount)//quizcount
 
         val quiz = quizData[0]//pick one quiz set
         val q= quiz[0]
         binding.question.text = "what is the capital of $q ?"
          rightAnswer = quiz[1]
-        quiz.removeAt(0)
+        quiz.removeAt(0)//removce that quiz
          quiz.shuffle()//shuffle choice and answers
         binding.answer1.text = quiz[0]
         binding.answer2.text = quiz[1]
