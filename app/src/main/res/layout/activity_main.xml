@@ -12,7 +12,7 @@
         android:id="@+id/count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/count_label"
+
         android:textSize="22sp"
 
 
@@ -21,42 +21,42 @@
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/question"
+
         android:textSize="22sp"
         android:layout_marginTop="50dp"
         />
 
     <Button
-        android:id="@+id/answer1"
+        android:id="@+id/choice1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/answer1"
+
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         android:layout_marginTop="40dp"/>
 
     <Button
-        android:id="@+id/answer2"
+        android:id="@+id/choice2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/answer2"
+
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
         />
 
     <Button
-        android:id="@+id/answer3"
+        android:id="@+id/choice3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/answer3"
+
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"/>
 
     <Button
-        android:id="@+id/answer4"
+        android:id="@+id/choice4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/answer4"
+
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"/>
 

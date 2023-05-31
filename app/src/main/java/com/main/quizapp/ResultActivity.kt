@@ -14,7 +14,7 @@ class ResultActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val score = intent.getIntExtra("right answer count",0)
-        binding.textView2.text=getString(R.string.d_5,score)
+        binding.resultNumber.text=getString(R.string.d_5,score)
         binding.button.
                 setOnClickListener{
                     val intent= Intent(this,MainActivity::class.java)

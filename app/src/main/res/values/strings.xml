@@ -3,11 +3,7 @@
     <string name="count_label">Q%d</string>
     <string name="result">Result</string>
     <string name="d_5">%d/5</string>
-    <string name="next">Next</string>
+    <string name="again">Try Again</string>
 
     <string name="question">question</string>
-    <string name="answer1">answer1</string>
-    <string name="answer2">answer2</string>
-    <string name="answer3">answer3</string>
-    <string name="answer4">answer4</string>
 </resources>

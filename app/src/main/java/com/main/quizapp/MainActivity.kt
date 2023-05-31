@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     private var rightAnswer: String? = null
     private var rightAnswerCount = 0
     private var quizCount = 1
-    private val totalCount = 5
+    private val totalCount = 6
     private val quizData = mutableListOf(
 
         mutableListOf("China", "Beijing", "Jakarta", "Manila", "Stockholm"),
@@ -36,8 +36,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         quizData.shuffle()
-onClick()
         showNextQuiz()
+onClick()
+
 
 
     }
@@ -51,10 +52,10 @@ onClick()
          rightAnswer = quiz[1]
         quiz.removeAt(0)//removce that quiz
          quiz.shuffle()//shuffle choice and answers
-        binding.answer1.text = quiz[0]
-        binding.answer2.text = quiz[1]
-        binding.answer3.text = quiz[2]
-        binding.answer4.text = quiz[3]
+        binding.choice1.text = quiz[0]
+        binding.choice2.text = quiz[1]
+        binding.choice3.text = quiz[2]
+        binding.choice4.text = quiz[3]
     quizData.removeAt(0)//remove country from quiz
      onClick()
 
@@ -69,7 +70,9 @@ showNextQuiz()
          }
          .setCancelable(false)
          .show()
+     quizCount++
      rightAnswerCount++
+
  }
     private fun wrongAnswer(){
 
@@ -85,6 +88,9 @@ showNextQuiz()
                 }
                 .setCancelable(false)
                 .show()
+        quizCount++
+
+
     }
 
 
@@ -99,34 +105,31 @@ showNextQuiz()
 
         } else {
             showNextQuiz()
-            quizCount++
-
-
         }
 
     }
     private fun onClick(){
-        binding.answer1.setOnClickListener{
-          val ans1 = binding.answer1.text.toString()
+        binding.choice1.setOnClickListener{
+          val ans1 = binding.choice1.text.toString()
           if (ans1==rightAnswer){
                 rightAnswer()
             }else{ wrongAnswer()}
 
         }
-        binding.answer2.setOnClickListener{
-            val ans2=  binding.answer2.text.toString()
+        binding.choice2.setOnClickListener{
+            val ans2=  binding.choice2.text.toString()
             if (ans2==rightAnswer){
                 rightAnswer()
             }else{ wrongAnswer()}
         }
-        binding.answer3.setOnClickListener{
-            val ans3=  binding.answer3.text.toString()
+        binding.choice3.setOnClickListener{
+            val ans3=  binding.choice3.text.toString()
             if (ans3==rightAnswer){
                 rightAnswer()
             }else{ wrongAnswer()}
         }
-        binding.answer4.setOnClickListener{
-            val ans4=  binding.answer4.text.toString()
+        binding.choice4.setOnClickListener{
+            val ans4=  binding.choice4.text.toString()
             if (ans4==rightAnswer){
                 rightAnswer()
             }else{ wrongAnswer()}
