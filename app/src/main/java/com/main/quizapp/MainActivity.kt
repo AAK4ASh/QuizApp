@@ -1,5 +1,6 @@
 package com.main.quizapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -43,6 +44,7 @@ onClick()
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showNextQuiz() {
          binding.count.text = getString(R.string.count_label, quizCount)//quizcount
 
@@ -50,12 +52,12 @@ onClick()
         val q= quiz[0]
         binding.question.text = "what is the capital of $q ?"
          rightAnswer = quiz[1]
-        quiz.removeAt(0)//removce that quiz
+        quiz.removeAt(0)//remove that quiz
          quiz.shuffle()//shuffle choice and answers
-        binding.choice1.text = quiz[0]
-        binding.choice2.text = quiz[1]
-        binding.choice3.text = quiz[2]
-        binding.choice4.text = quiz[3]
+        binding.choice1.text =" 1.{$quiz[0]}"
+        binding.choice2.text = "2.{$quiz[1]}"
+        binding.choice3.text = "3.{$quiz[2]}"
+        binding.choice4.text ="3.{$quiz[3]}"
     quizData.removeAt(0)//remove country from quiz
      onClick()
 
