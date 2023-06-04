@@ -16,7 +16,7 @@ class ResultActivity : AppCompatActivity() {
         val score = intent.getIntExtra("right answer count",0)
         binding.resultNumber.text=getString(R.string.d_5,score)
         binding.button.
-                setOnClickListener{
+                setOnClickListener{//restarting quiz
                     val intent= Intent(this,MainActivity::class.java)
                     startActivity(intent)
                 }
